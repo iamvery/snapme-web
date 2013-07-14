@@ -1,0 +1,45 @@
+#!/bin/sh
+
+brew_install_if_needed() {
+  package=$1
+
+  brew info $package | grep "Not installed" > /dev/null 2>&1
+  if [[ "$?" -eq "0" ]]; then
+    brew install $package
+  fi
+}
+
+add_git_remote_if_needed() {
+  name=$1
+  url=$2
+
+  git remote | grep $name > /dev/null 2>&1
+  if [[ "$?" -eq "1" ]]; then
+    git remote add $name $url
+  fi
+}
+
+# Brew packages
+brew_install_if_needed heroku-toolbelt
+
+# Heroku deployments
+add_git_remote_if_needed production git@heroku.com:seeme-web.git
+
+# database.yml
+if [ ! -f config/database.yml ]; then
+  cp config/database.yml.example config/database.yml
+fi
+
+# Gems
+bundle install
+
+printf "\e[36m"
+echo ""
+echo "---------------------------------"
+echo "Some manual setup steps required:"
+echo ""
+echo "1) Edit config/database.yml if a username or password is required"
+echo "   for your installation."
+echo "2) Initialize databases with:"
+echo "     bin/rake db:setup"
+printf "\e[0m"
