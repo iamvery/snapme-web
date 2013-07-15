@@ -1,20 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-#infrastucture
 gem 'rails', '4.0.0'
-gem 'unicorn'
 
-# auth
+#infrastucture
+gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'unicorn'
 
 # database
 gem 'pg',      group: :production
 gem 'sqlite3', group: :development
-
-# views
-gem 'haml-rails'
 
 # assets
 gem 'coffee-rails', '~> 4.0.0'
