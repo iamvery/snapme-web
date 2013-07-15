@@ -6,7 +6,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'turnip/capybara'
 
-Dir[Rails.root.join("spec/(support|steps)/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/steps/**/*.rb"  )].each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
