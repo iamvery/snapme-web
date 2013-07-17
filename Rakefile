@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SeemeWeb::Application.load_tasks
+APP_NAME::Application.load_tasks

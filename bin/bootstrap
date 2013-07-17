@@ -23,7 +23,7 @@ add_git_remote_if_needed() {
 brew_install_if_needed heroku-toolbelt
 
 # Heroku deployments
-add_git_remote_if_needed production git@heroku.com:seeme-web.git
+add_git_remote_if_needed production git@heroku.com:snapme-web.git
 
 # database.yml
 if [ ! -f config/database.yml ]; then

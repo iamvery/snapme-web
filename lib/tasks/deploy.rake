@@ -1,6 +1,6 @@
 ENVIRONMENT_MAP = {
   production: {
-    app:    'seeme-web',
+    app:    'snapme',
     branch: :master },
 }
 
