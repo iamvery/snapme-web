@@ -1,0 +1,10 @@
+$('.user-snapshot').each (index, element) ->
+  snapshot = $(this)
+  update_snapshot = ->
+    url = "/users/#{snapshot.data('user-id')}/snapshot.json"
+    $.get url, (data) ->
+      snapshot.empty()
+      snapshot.html("<img src='#{data.snapshot_uri}' />")
+
+  one_second = 10000
+  setInterval(update_snapshot, one_second)
