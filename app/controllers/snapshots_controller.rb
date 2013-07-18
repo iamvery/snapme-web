@@ -1,4 +1,4 @@
-class SnapshotsController < ApplicationController
+class SnapshotsController < AuthenticatedController
   protect_from_forgery except: :create
   respond_to :json, only: :show
 
