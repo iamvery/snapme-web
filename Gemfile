@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 #infrastucture
 gem 'carrierwave'
 gem 'haml-rails'
+gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'unicorn'
