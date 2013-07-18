@@ -6,5 +6,5 @@ $('.user-snapshot').each (index, element) ->
       snapshot.empty()
       snapshot.html("<img src='#{data.snapshot_uri}' />")
 
-  one_second = 10000
-  setInterval(update_snapshot, one_second)
+  ten_seconds = 10000
+  setInterval(update_snapshot, ten_seconds)
