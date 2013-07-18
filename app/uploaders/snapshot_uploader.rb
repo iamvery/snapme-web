@@ -14,7 +14,7 @@ class SnapshotUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{Time.now.to_s(:number)}.#{file.extension}"
+    "#{Time.now.to_s(:number)}.#{file.extension}" if file
   end
 
   private
