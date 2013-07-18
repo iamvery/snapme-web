@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130715222246) do
+ActiveRecord::Schema.define(version: 20130718215942) do
 
   create_table "users", force: true do |t|
-    t.string "provider", null: false
-    t.string "uid",      null: false
-    t.string "username", null: false
+    t.string "provider",   null: false
+    t.string "uid",        null: false
+    t.string "username",   null: false
     t.string "snapshot"
+    t.string "auth_token"
   end
 
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
   add_index "users", ["provider", "uid", "username"], name: "index_users_on_provider_and_uid_and_username", unique: true
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
 
