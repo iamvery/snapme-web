@@ -16,3 +16,12 @@ RSpec.configure do |config|
   config.order                                      = 'random'
   config.use_transactional_fixtures                 = false
 end
+
+auth_hash = {
+  provider: 'github',
+  uid:      '12345',
+  username: 'batman',
+  info:     { nickname: 'Dark Knight' },
+}
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(auth_hash)
