@@ -6,6 +6,7 @@ class SnapshotUploader < CarrierWave::Uploader::Base
   MAX_WIDTH = MAX_HEIGHT = 300
 
   storage :file
+  process convert: :jpg
   process :convert_to_grayscale
   process resize_to_fit: [MAX_WIDTH, MAX_HEIGHT]
 
@@ -14,7 +15,7 @@ class SnapshotUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{Time.now.to_s(:number)}.#{file.extension}" if file
+    "#{Time.now.to_s(:number)}.jpg"
   end
 
   private
