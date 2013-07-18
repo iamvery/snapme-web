@@ -17,6 +17,11 @@ RSpec.configure do |config|
   config.use_transactional_fixtures                 = true
 end
 
+CarrierWave.configure do |config|
+  config.enable_processing = false
+  config.storage           = :file
+end
+
 auth_hash = {
   provider: 'github',
   uid:      '12345',
