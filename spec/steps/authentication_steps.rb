@@ -11,6 +11,11 @@ step 'I am signed in' do
   send 'I sign in with Github'
 end
 
+step 'I have signed in before' do
+  send 'I am signed in'
+  send 'I sign out'
+end
+
 step 'I sign in with Github' do
   find('[rel~=github-sign-in]').click
 end
