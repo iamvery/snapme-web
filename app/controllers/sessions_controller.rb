@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :authenticate, only: :destroy
+
   def new
   end
 
