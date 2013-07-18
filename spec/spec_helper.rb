@@ -20,8 +20,7 @@ end
 auth_hash = {
   provider: 'github',
   uid:      '12345',
-  username: 'batman',
-  info:     { nickname: 'Dark Knight' },
+  info:     { nickname: 'batman' },
 }
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(auth_hash)
