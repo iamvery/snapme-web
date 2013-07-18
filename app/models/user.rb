@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
     uid      = auth_hash.uid
     username = auth_hash.info.nickname
 
-    find_or_create_by_provider_and_uid_and_username(provider, uid, username)
+    find_or_create_by(provider: provider, uid: uid, username: username)
   end
 end
