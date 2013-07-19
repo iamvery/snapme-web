@@ -10,5 +10,5 @@ step 'I view the users page' do
 end
 
 step %q{I see :count users' snapshot(s)} do |count|
-  expect(page).to have_css('.user-snapshot', count: count)
+  expect(page).to have_css('.user', count: count)
 end
