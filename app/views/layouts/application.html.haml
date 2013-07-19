@@ -9,9 +9,10 @@
   %div= notice
 
   - if current_user
-    Signed in as
-    = current_user.username
-    = link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out'
+    %div
+      Your authentication token:
+      %strong= current_user.auth_token
+    %div= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out'
 
   = yield
   = javascript_include_tag 'http://js.pusher.com/2.1/pusher.min.js'
