@@ -2,9 +2,9 @@ class SnapshotsController < AuthenticatedController
   protect_from_forgery except: :create
 
   def create
-    user.snapshot = snapshot
-    user.save!
-    user.notify_new_snapshot
+    current_user.snapshot = snapshot
+    current_user.save!
+    current_user.notify_new_snapshot
     head :ok
   end
 
@@ -12,13 +12,5 @@ class SnapshotsController < AuthenticatedController
 
   def snapshot
     params[:snapshot]
-  end
-
-  def user
-    @user ||= User.find(user_id)
-  end
-
-  def user_id
-    params[:user_id]
   end
 end
