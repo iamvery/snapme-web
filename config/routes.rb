@@ -5,7 +5,7 @@ APP_NAME::Application.routes.draw do
   match  '/auth/failure'            => 'sessions#failure', via: :all
 
   resources :users, only: %i(index) do
-    resource :snapshot, only: %i(show create)
+    resource :snapshot, only: %i(create)
   end
 
   root to: 'users#index'

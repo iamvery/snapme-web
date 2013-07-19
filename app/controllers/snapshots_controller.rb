@@ -1,10 +1,5 @@
 class SnapshotsController < AuthenticatedController
   protect_from_forgery except: :create
-  respond_to :json, only: :show
-
-  def show
-    respond_with({ snapshot_uri: user.snapshot.url })
-  end
 
   def create
     user.snapshot = snapshot
