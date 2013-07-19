@@ -1,7 +1,17 @@
 class User < ActiveRecord::Base
+  PUSHER_CHANNEL            = 'user_channel'
+  PUSHER_NEW_SNAPSHOT_EVENT = 'new_snapshot'
+
   before_save :ensure_auth_token
 
   mount_uploader :snapshot, SnapshotUploader
+
+  def notify_new_snapshot
+    Pusher[User::PUSHER_CHANNEL].trigger(
+      User::PUSHER_NEW_SNAPSHOT_EVENT,
+      user_id:      id,
+      snapshot_url: snapshot.url )
+  end
 
   def self.find_or_create_by_auth_hash(auth_hash)
     provider = auth_hash.provider
