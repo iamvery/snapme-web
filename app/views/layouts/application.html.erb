@@ -16,6 +16,7 @@
 <% end %>
 
 <%= yield %>
+<%= javascript_include_tag 'http://js.pusher.com/2.1/pusher.min.js' %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 </body>
