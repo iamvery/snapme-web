@@ -1,19 +1,19 @@
 !!! 5
 %html
-%head
-  %title Snapme
-  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-  = csrf_meta_tags
-%body
-  %div= alert
-  %div= notice
+  %head
+    %title Snapme
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %div= alert
+    %div= notice
 
-  - if current_user
-    %div
-      Your authentication token:
-      %strong= current_user.auth_token
-    %div= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out'
+    - if current_user
+      %div
+        Your authentication token:
+        %strong= current_user.auth_token
+      %div= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out'
 
-  = yield
-  = javascript_include_tag 'http://js.pusher.com/2.1/pusher.min.js'
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = yield
+    = javascript_include_tag 'http://js.pusher.com/2.1/pusher.min.js'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
