@@ -13,6 +13,7 @@ describe SnapshotsController do
     it %q(updates the user's snapshot) do
       expect(user).to receive(:snapshot=).with snapshot
       expect(user).to receive(:save!)
+      expect(user).to receive(:notify_new_snapshot)
 
       expect(response).to be_success
 

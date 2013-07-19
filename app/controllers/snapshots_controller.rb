@@ -9,6 +9,7 @@ class SnapshotsController < AuthenticatedController
   def create
     user.snapshot = snapshot
     user.save!
+    user.notify_new_snapshot
     head :ok
   end
 
