@@ -3,7 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 
-#infrastucture
+# infrastucture
 gem 'carrierwave'
 gem 'haml-rails'
 gem 'mini_magick'
