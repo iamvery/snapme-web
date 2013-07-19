@@ -1,4 +1,4 @@
-pusher  = new Pusher('<%= Pusher.key %>')
+pusher  = new Pusher('<%= ENV['PUSHER_KEY'] %>')
 channel = pusher.subscribe('<%= User::PUSHER_CHANNEL %>')
 channel.bind '<%= User::PUSHER_NEW_SNAPSHOT_EVENT %>', (data) ->
   snapshot = $(".user##{data.user_id}")
