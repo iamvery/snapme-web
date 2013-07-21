@@ -1,5 +1,6 @@
 .row-fluid
   %ul.thumbnails
     - @users.each do |user|
-      %li.span3.user{ id: user.id }
-        .thumbnail= image_tag user.snapshot.url, class: :snapshot
+      - if user.snapshot.file.exists?
+        %li.span3.user{ id: user.id }
+          .thumbnail= image_tag user.snapshot.url, class: :snapshot
