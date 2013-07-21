@@ -10,6 +10,7 @@ gem 'mini_magick'
 gem 'pusher'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-twitter'
 gem 'unicorn'
 
 # database
