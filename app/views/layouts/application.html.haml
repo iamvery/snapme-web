@@ -10,7 +10,7 @@
         .span12
           - if current_user
             %div
-              .pull-right= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out', class: %i(btn btn-primary)
+              .pull-right= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out', class: %i(btn btn-danger)
               %h2
                 %small Hey there,
                 = current_user.username
