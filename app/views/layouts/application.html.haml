@@ -15,8 +15,8 @@
                 %small Hey there,
                 = current_user.username
               %p
-                %span.muted You can start snapping with your auth token
-                %strong= current_user.auth_token
+                Your auth token is <code>#{current_user.auth_token}</code>.
+                Start uploading snapshots with the CLI <code>gem install snapme</code>.
 
           - if alert
             .alert.alert-error= alert
