@@ -1,4 +1,5 @@
-%ul
-  - @users.each do |user|
-    %li.user{ id: user.id }
-      = image_tag user.snapshot.url, class: :snapshot
+.row-fluid
+  %ul.thumbnails
+    - @users.each do |user|
+      %li.span3.user{ id: user.id }
+        .thumbnail= image_tag user.snapshot.url, class: :snapshot
