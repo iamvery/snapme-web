@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130718215942) do
+ActiveRecord::Schema.define(version: 20130721041012) do
+
+  create_table "teams", force: true do |t|
+    t.string "name", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string "provider",   null: false
