@@ -1,8 +1,7 @@
-.row-fluid
-  %ul.thumbnails
-    - @users.each do |user|
-      %li.span3.user{ id: user.id }
-        .thumbnail
-          = image_tag user.snapshot.url, class: :snapshot
-          .caption
-            = user.username
+%ul.thumbnails.snapshots
+  - @users.each do |user|
+    %li.pull-left.user{ id: user.id, style: 'margin-left:0; margin-right:20px' }
+      .thumbnail
+        = image_tag user.snapshot.url, class: :snapshot
+        .caption
+          = user.username
