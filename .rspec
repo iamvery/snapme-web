@@ -1,3 +1,2 @@
 --color
 -r turnip/rspec
--P **/*{_spec.rb,.feature}
