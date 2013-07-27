@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   PUSHER_CHANNEL            = 'user_channel'
   PUSHER_NEW_SNAPSHOT_EVENT = 'new_snapshot'
 
+  has_many :memberships
+  has_many :teams, through: :memberships
+
   before_save :ensure_auth_token
 
   mount_uploader :snapshot, SnapshotUploader
