@@ -3,22 +3,12 @@ Feature: Viewing teams
     Given there is an existing user
     And there is a team named "PLF"
     And existing user is a part of team "PLF"
-    And I have signed in before
+    And I am signed in
 
-  Scenario: Signed out user views teams
+  Scenario: User views teams
     When I view the teams page
-    Then I am asked to sign in
-
-  Scenario: Signed out user views a team
-    When I view the "PLF" team page
-    Then I am asked to sign in
-
-  Scenario: Signed in user sees teams
-    When I am signed in
-    And I view the teams page
     Then I see the team "PLF"
 
-  Scenario: Signed in user sees images
-    When I am signed in
-    And I view the "PLF" team page
+  Scenario: User views a team
+    When I view the "PLF" team page
     Then I see 1 user's snapshot
