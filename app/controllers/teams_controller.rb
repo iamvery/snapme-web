@@ -6,7 +6,7 @@ class TeamsController < AuthenticatedController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = find_team
   end
 
   def new
@@ -19,6 +19,10 @@ class TeamsController < AuthenticatedController
   end
 
   private
+
+  def find_team
+    Team.find(params[:id])
+  end
 
   def team_params
     params.require(:team).permit(:name)
