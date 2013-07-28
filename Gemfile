@@ -12,6 +12,7 @@ gem 'pusher'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
+gem 'simple_form'
 gem 'unicorn'
 
 # database
