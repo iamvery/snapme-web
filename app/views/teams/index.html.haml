@@ -1,0 +1,4 @@
+%h1 Teams
+%ul
+  - @teams.each do |team|
+    %li= link_to team.name, team_path(team)
