@@ -15,8 +15,7 @@ gem 'omniauth-twitter'
 gem 'unicorn'
 
 # database
-gem 'pg',      group: :production
-gem 'sqlite3', group: :development
+gem 'pg'
 
 # assets
 gem 'coffee-rails', '~> 4.0.0'
