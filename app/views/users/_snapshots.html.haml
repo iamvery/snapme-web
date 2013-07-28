@@ -1,0 +1,6 @@
+%ul.thumbnails.snapshots
+  - users.each do |user|
+    %li.user{ id: user.id }
+      .thumbnail
+        = image_tag user.snapshot.url, class: :snapshot
+        .caption= user.username
