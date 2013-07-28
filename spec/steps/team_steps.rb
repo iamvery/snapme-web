@@ -29,6 +29,15 @@ step 'I update the :original_name team name to :new_name' do |original_name, new
   click_on 'Update Team'
 end
 
+step 'I delete the team named :name' do |name|
+  send 'I view the :name team page', name
+  find('[rel~=delete-team]').click
+end
+
 step 'I see the team :name' do |name|
   expect(page).to have_content(name)
+end
+
+step 'I do not see the team :name' do |name|
+  expect(page).to_not have_content(name)
 end

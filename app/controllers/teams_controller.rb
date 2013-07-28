@@ -28,6 +28,12 @@ class TeamsController < AuthenticatedController
     respond_with @team
   end
 
+  def destroy
+    @team = find_team
+    @team.destroy!
+    respond_with @team
+  end
+
   private
 
   def find_team

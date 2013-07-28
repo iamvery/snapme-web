@@ -11,3 +11,8 @@ Feature: Managing Teams
     When there is a team named "PLF"
     And I update the "PLF" team name to "PLFofBNR"
     Then I see the team "PLFofBNR"
+
+  Scenario: Deleting a team
+    When there is a team named "PLF"
+    And I delete the team named "PLF"
+    Then I do not see the team "PLF"
