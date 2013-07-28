@@ -5,7 +5,7 @@ describe SnapshotsController do
     let(:user)    { double 'User'  }
     let(:snapshot){ 'snapshot.jpg' }
 
-    context 'without authentication' do
+    context 'unauthenticated' do
       before do
         post :create, user_id: 1, snapshot: snapshot
       end
@@ -14,7 +14,7 @@ describe SnapshotsController do
       specify{ expect(response).to redirect_to(sign_in_path) }
     end
 
-    context 'with authentication' do
+    context 'authenticated' do
       before do
         allow(User).to receive(:find).and_return(user)
         allow(User).to receive(:find_by_auth_token).and_return(user)
