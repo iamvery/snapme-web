@@ -16,6 +16,12 @@ step 'I view the :name team page' do |name|
   visit team_path(team.id)
 end
 
+step 'I add a team named :name' do |name|
+  find('[rel~=add-team]').click
+  fill_in 'Name', with: name
+  click_on 'Create Team'
+end
+
 step 'I see the team :name' do |name|
   expect(page).to have_content(name)
 end

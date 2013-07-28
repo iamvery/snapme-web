@@ -1,0 +1,4 @@
+%h1 Add Team
+= simple_form_for @team do |f|
+  = f.input :name, input_html: {class: :span12}
+  = f.button :submit, class: 'btn btn-primary'
