@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # infrastucture
 gem 'carrierwave'
+gem 'foreigner'
 gem 'haml-rails'
 gem 'mini_magick'
 gem 'pusher'
