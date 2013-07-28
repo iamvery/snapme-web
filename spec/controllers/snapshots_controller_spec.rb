@@ -16,7 +16,6 @@ describe SnapshotsController do
 
     context 'authenticated' do
       before do
-        allow(User).to receive(:find).and_return(user)
         allow(User).to receive(:find_by_auth_token).and_return(user)
       end
 
