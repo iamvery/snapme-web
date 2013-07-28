@@ -4,6 +4,7 @@ APP_NAME::Application.routes.draw do
   match  '/auth/:provider/callback' => 'sessions#create',  via: :all
   match  '/auth/failure'            => 'sessions#failure', via: :all
 
+  resources :teams,    only: %i(index show)
   resources :users,    only: %i(index)
   resource  :snapshot, only: %i(create)
 
