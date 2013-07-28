@@ -13,8 +13,18 @@ class TeamsController < AuthenticatedController
     @team = Team.new
   end
 
+  def edit
+    @team = find_team
+  end
+
   def create
     @team = Team.create(team_params)
+    respond_with @team
+  end
+
+  def update
+    @team = find_team
+    @team.update_attributes(team_params)
     respond_with @team
   end
 

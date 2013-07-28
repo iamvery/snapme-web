@@ -22,6 +22,13 @@ step 'I add a team named :name' do |name|
   click_on 'Create Team'
 end
 
+step 'I update the :original_name team name to :new_name' do |original_name, new_name|
+  send 'I view the :name team page', original_name
+  click_on 'Edit'
+  fill_in 'Name', with: new_name
+  click_on 'Update Team'
+end
+
 step 'I see the team :name' do |name|
   expect(page).to have_content(name)
 end

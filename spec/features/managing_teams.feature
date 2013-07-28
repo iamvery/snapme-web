@@ -6,3 +6,8 @@ Feature: Managing Teams
     When I view the teams page
     And I add a team named "PLF"
     Then I see the team "PLF"
+
+  Scenario: Editing a team
+    When there is a team named "PLF"
+    And I update the "PLF" team name to "PLFofBNR"
+    Then I see the team "PLFofBNR"
