@@ -15,8 +15,14 @@ class Snapme.Snapshot
 
   uploadImage: =>
     image = @camera.imageAsFile()
+    data = new FormData()
+
+    data.append('snapshot', image)
     $.ajax
       url: '/snapshot'
+      cache: false,
+      contentType: false,
+      processData: false,
       type: 'POST'
       data:
-        snapshot: image
+        data
