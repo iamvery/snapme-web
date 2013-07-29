@@ -33,5 +33,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'turnip'
 end
