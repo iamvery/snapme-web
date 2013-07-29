@@ -3,4 +3,6 @@
   = link_to 'Add Team', new_team_path, rel: 'add-team', class: %i(btn btn-primary)
 %ul
   - @teams.each do |team|
-    %li= link_to team.name, team_path(team)
+    %li
+      = link_to team.name, team_path(team), rel: 'view-team'
+      .switch= membership_switch(team)
