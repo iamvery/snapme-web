@@ -31,6 +31,12 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.around(:each, type: :feature, javascript: true) do |example|
+    DatabaseCleaner.strategy = :truncation
+    example.run
+    DatabaseCleaner.strategy = default_db_cleaner_strategy
+  end
 end
 
 CarrierWave.configure do |config|
