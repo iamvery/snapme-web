@@ -1,0 +1,9 @@
+%h1
+  Teams
+  = link_to 'Add Team', new_team_path, rel: 'add-team', class: %i(btn btn-primary)
+%ul
+  - @teams.each do |team|
+    %li
+      %h2= link_to team.name, team_path(team), rel: 'view-team'
+      .switch(data-on-label='YES!' data-off-label='NOPE')
+        = membership_switch(team)

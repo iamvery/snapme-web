@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130718215942) do
+ActiveRecord::Schema.define(version: 20130727034551) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "memberships", force: true do |t|
+    t.integer "user_id", null: false
+    t.integer "team_id", null: false
+  end
+
+  create_table "teams", force: true do |t|
+    t.string "name", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string "provider",   null: false
@@ -21,8 +33,11 @@ ActiveRecord::Schema.define(version: 20130718215942) do
     t.string "auth_token"
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
-  add_index "users", ["provider", "uid", "username"], name: "index_users_on_provider_and_uid_and_username", unique: true
-  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
+  add_index "users", ["provider", "uid", "username"], name: "index_users_on_provider_and_uid_and_username", unique: true, using: :btree
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
+
+  add_foreign_key "memberships", "teams", :name => "memberships_team_id_fk", :dependent => :delete
+  add_foreign_key "memberships", "users", :name => "memberships_user_id_fk", :dependent => :delete
 
 end
