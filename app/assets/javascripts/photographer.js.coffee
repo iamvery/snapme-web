@@ -3,4 +3,4 @@ $ ->
   canvas = '#canvas'
   snapshooter = new Snapme.Snapshot(video, canvas)
 
-  snapshooter.takeEvery(1000)
+  snapshooter.takeEvery(30000)
