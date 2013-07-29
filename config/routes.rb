@@ -5,6 +5,7 @@ APP_NAME::Application.routes.draw do
   match  '/auth/failure'            => 'sessions#failure', via: :all
 
   resources :teams
+  resources :memberships, only: %i(create destroy)
   resource  :snapshot, only: %i(create)
 
   root to: 'teams#index'
