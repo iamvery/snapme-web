@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-switch
 //= require_tree .
 
 $('.alert').delay(2000).fadeOut()
