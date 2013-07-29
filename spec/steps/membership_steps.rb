@@ -1,6 +1,6 @@
 step 'I add myself to a team' do
   send 'I view the teams page'
-  find(membership_checkbox).set(true)
+  flip_membership_switch(true)
 end
 
 step 'I am on a team' do
@@ -9,7 +9,7 @@ end
 
 step 'I remove myself from a team' do
   send 'I view the teams page'
-  find(membership_checkbox).set(false)
+  flip_membership_switch(false)
 end
 
 step 'I see myself on that team' do
@@ -28,4 +28,9 @@ end
 
 def user_snapshot_caption
   '.user .thumbnail .caption'
+end
+
+def flip_membership_switch(switch_state)
+  script = '$(".switch").bootstrapSwitch("setState", %s)' % switch_state
+  page.execute_script(script)
 end
