@@ -1,0 +1,18 @@
+error_func = (xhr, status, error) ->
+  is_checked = this.is(':checked')
+  this.prop('checked', !is_checked)
+
+$('[rel~=team-membership]').change ->
+  checkbox = $(this)
+  team_id  = checkbox.data('team-id')
+  settings = { error: error_func.bind(checkbox) }
+
+  if checkbox.is(':checked')
+    endpoint      = checkbox.data('create-endpoint')
+    settings.data = { id: team_id }
+    settings.type = 'POST'
+    $.ajax(endpoint, settings)
+  else
+    endpoint      = checkbox.data('destroy-endpoint')
+    settings.type = 'DELETE'
+    $.ajax(endpoint, settings)

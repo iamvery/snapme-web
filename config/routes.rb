@@ -4,8 +4,9 @@ APP_NAME::Application.routes.draw do
   match  '/auth/:provider/callback' => 'sessions#create',  via: :all
   match  '/auth/failure'            => 'sessions#failure', via: :all
 
-  resources :users,    only: %i(index)
+  resources :teams
+  resources :memberships, only: %i(create destroy)
   resource  :snapshot, only: %i(create)
 
-  root to: 'users#index'
+  root to: 'teams#index'
 end
