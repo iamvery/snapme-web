@@ -2,6 +2,10 @@ step 'there is a team named :name' do |name|
   Team.create!(name: name)
 end
 
+step 'there is a team' do
+  send 'there is a team named :name', 'PLF'
+end
+
 step 'existing user is a part of team :name' do |name|
   team = Team.find_by_name(name)
   team.users << User.first
@@ -14,6 +18,10 @@ end
 step 'I view the :name team page' do |name|
   team = Team.find_by_name(name)
   visit team_path(team.id)
+end
+
+step 'I view a team' do
+  find('[rel~=view-team]').click
 end
 
 step 'I add a team named :name' do |name|
