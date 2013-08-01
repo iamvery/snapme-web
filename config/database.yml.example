@@ -1,12 +1,11 @@
 common: &common
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
-  timeout: 5000
 
 development:
   <<: *common
-  database: db/development.sqlite3
+  database: snapme_development
 
 test:
   <<: *common
-  database: db/test.sqlite3
+  database: snapme_test
