@@ -11,7 +11,7 @@ class Snapme.Snapshot
   takeEvery: (interval, callback) ->
     @camera.takeSnapshot()
     fun = callback || @uploadImage
-    window.setInterval(@camera.takeSnapshot, interval, fun);
+    window.setInterval(@camera.takeSnapshot, interval, fun)
 
   uploadImage: =>
     image = @camera.imageAsFile()

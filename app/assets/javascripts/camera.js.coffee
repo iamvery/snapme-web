@@ -16,7 +16,7 @@ class Snapme.Camera
   takeSnapshot: (callback) =>
     throw "Video must be recording to take a snapshot" unless @recording
     context = @canvas.getContext('2d')
-    context.drawImage(@video, 0, 0, 300, 300);
+    context.drawImage(@video, 0, 0, 300, 300)
     callback() if callback
 
   videoConstraints:
