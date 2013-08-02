@@ -1,4 +1,5 @@
 .pull-right
+  = link_to 'View Teams', teams_path, class: %i(btn btn-primary)
   = link_to 'Edit', edit_team_path(@team), class: :btn
   = link_to 'Delete', team_path(@team), method: :delete, rel: 'delete-team', class: %i(btn btn-danger), data: { confirm: 'Are you sure?' }
 %h1
