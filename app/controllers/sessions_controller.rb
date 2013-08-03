@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_filter :authenticate, only: :destroy
 
   def new
+    flash[:invitation_token] = invitation_token
   end
 
   def create
@@ -24,4 +25,9 @@ class SessionsController < ApplicationController
   def auth_hash
     request.env['omniauth.auth']
   end
+
+  def invitation_token
+    params[:invitation_token] || flash[:invitation_token]
+  end
+  helper_method :invitation_token
 end
