@@ -1,28 +1,22 @@
 class Snapme.Snapshot
-  constructor: (videoSelector, canvasSelector) ->
-    @video = $(videoSelector)[0]
-    @canvas = $(canvasSelector)[0]
-    @camera = new Snapme.Camera(@video, @canvas)
-    @camera.recordVideo()
+  constructor: (camera, onAllowed, onDenied) ->
+    feed    = camera.find('video.feed').get(0)
+    frame   = camera.find('canvas.frame').get(0)
+    @camera = new Snapme.Camera(feed, frame, onAllowed, onDenied)
+    @camera.turnOn()
 
-  take: (callback) ->
-    @camera.takeSnapshot()
-
-  takeEvery: (interval, callback) ->
-    @camera.takeSnapshot()
-    fun = callback || @uploadImage
-    window.setInterval(@camera.takeSnapshot, interval, fun)
+  take: =>
+    @camera.takeSnapshot(@uploadImage)
 
   uploadImage: =>
-    image = @camera.imageAsFile()
+    image = @camera.image()
     data = new FormData()
-
     data.append('snapshot', image)
+
     $.ajax
       url: '/snapshot'
       cache: false,
       contentType: false,
       processData: false,
       type: 'POST'
-      data:
-        data
+      data: data

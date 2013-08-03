@@ -8,5 +8,6 @@
   = @team.name
 = render 'users/snapshots', users: @team.users
 
-<video id="video" width="300" height="300" autoplay></video>
-<canvas id="canvas" width="300" height="300"></canvas>
+#snapshooter(style='display:none')
+  %video.feed{ width: User::SNAPSHOT_WIDTH, height: User::SNAPSHOT_HEIGHT }
+  %canvas.frame{ width: User::SNAPSHOT_WIDTH, height: User::SNAPSHOT_HEIGHT }

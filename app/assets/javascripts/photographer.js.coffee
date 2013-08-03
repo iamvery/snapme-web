@@ -1,6 +1,10 @@
 $ ->
-  video = '#video'
-  canvas = '#canvas'
-  snapshooter = new Snapme.Snapshot(video, canvas)
+  snapshooter = $('#snapshooter')
 
-  snapshooter.takeEvery(30000)
+  if snapshooter.length
+    snaps_allowed = ->
+      snapshot.take()
+      thirty_seconds = 30000
+      setInterval(snapshot.take, thirty_seconds)
+
+    snapshot = new Snapme.Snapshot(snapshooter, snaps_allowed)
