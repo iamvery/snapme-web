@@ -45,4 +45,22 @@ describe User do
       described_class.find_or_create_by_auth_hash(auth_hash)
     end
   end
+
+  describe '.find_by_auth_hash' do
+    it 'delegates to ActiveRecord method with appropriate information' do
+      expect(User).to receive(:find_by)
+        .with(provider: provider, uid: uid, username: username)
+
+      described_class.find_by_auth_hash(auth_hash)
+    end
+  end
+
+  describe '.create_by_auth_hash' do
+    it 'delegates to ActiveRecord method with appropriate information' do
+      expect(User).to receive(:create!)
+        .with(provider: provider, uid: uid, username: username)
+
+      described_class.create_by_auth_hash(auth_hash)
+    end
+  end
 end
