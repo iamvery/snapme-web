@@ -1,0 +1,9 @@
+@import 'flat-ui';
+
+.btn-github {
+  @extend .btn-primary;
+}
+
+.btn-twitter {
+  @extend .btn-info;
+}

@@ -4,7 +4,7 @@ module SignInsHelper
       "Sign in with #{provider.titleize}",
       "/auth/#{provider}",
       rel: "#{provider}-sign-in",
-      class: %i(btn btn-primary btn-large)
+      class: %I(btn btn-#{provider} btn-large)
     )
   end
 end
