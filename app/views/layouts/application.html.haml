@@ -22,7 +22,17 @@
               %p
                 Your auth token is <code>#{current_user.auth_token}</code>.
                 Start uploading snapshots with the CLI <code>gem install snapme</code>.
+          - else
+            .row.demo-tiles(style='margin-bottom:20px')
+              .span6.offset3
+                .tile
+                  %h1 Welcome!
+                  %p
+                    Snapme is an <em>incredible</em> way to get a glipse at
+                    your team from anywhere! We ask for the least authorization
+                    possible from your chosen auth provider.
 
+                  = link_to 'Want in?', new_invitation_request_path, class: %i(btn btn-warning btn-large)
 
           %hr/
           = yield
