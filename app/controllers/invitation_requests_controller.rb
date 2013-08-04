@@ -28,7 +28,7 @@ class InvitationRequestsController < AuthenticatedController
   end
 
   def send_invitation
-    invitation_request = InvitationRequest.find(params[:invitation_request_id])
+    invitation_request = InvitationRequest.find_by_id(params[:invitation_request_id])
 
     if invitation_request
       invitation = Invitation.create!
