@@ -1,0 +1,8 @@
+= form_for @invitation_request do |f|
+  - if @invitation_request.errors.any?
+    .alert.alert-error
+      %ul(style='margin-bottom:0')
+        - @invitation_request.errors.full_messages.each do |error|
+          %li= error
+  = f.email_field :email, placeholder: 'Email address to send your invitation', class: :span12
+  .actions= f.submit class: %i(btn btn-primary)
