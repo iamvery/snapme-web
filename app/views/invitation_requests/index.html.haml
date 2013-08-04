@@ -16,5 +16,5 @@
         %td= request.email
         %td
           .pull-right
-            = link_to 'Send Invitation', invitation_request_send_path(request), method: :post, rel: 'send-invitation', class: %i(btn btn-inverse)
-            = link_to 'Delete Request',  invitation_request_path(request),      method: :delete, class: %i(btn btn-danger), data: {confirm: 'Sure?'}
+            = send_invitation_link(request)
+            = delete_invitation_request_link(request)
