@@ -18,6 +18,10 @@ step 'I view the sign in page with a valid invitation token' do
   send 'I view the sign in page with invitation :token', invitation.token
 end
 
+step 'I sign in' do
+  send 'I sign in with Github'
+end
+
 step 'I sign out' do
   find('[rel~=sign-out]').click
 end
