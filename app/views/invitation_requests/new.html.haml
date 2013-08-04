@@ -5,4 +5,4 @@
         - @invitation_request.errors.full_messages.each do |error|
           %li= error
   = f.email_field :email, placeholder: 'Email address to send your invitation', class: :span12
-  .actions= f.submit class: %i(btn btn-primary)
+  .actions= f.submit class: %i(btn btn-primary), rel: 'send-request'
