@@ -1,7 +1,7 @@
-class InvitationRequestsController < ApplicationController
+class InvitationRequestsController < AuthenticatedController
   respond_to :html
 
-  before_filter :authenticate, only: :index
+  skip_before_filter :authenticate, only: %i(new create)
 
   def index
     @invitation_requests = InvitationRequest.all
