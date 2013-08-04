@@ -30,6 +30,11 @@ if [ ! -f config/database.yml ]; then
   cp config/database.yml.example config/database.yml
 fi
 
+# .env
+if [ ! -f .env ]; then
+  cp .env.example .env
+fi
+
 # Gems
 bundle install
 
@@ -42,4 +47,5 @@ echo "1) Edit config/database.yml if a username or password is required"
 echo "   for your installation."
 echo "2) Initialize databases with:"
 echo "     bin/rake db:setup"
+echo "3) Update your .env with magic keys and such."
 printf "\e[0m"
