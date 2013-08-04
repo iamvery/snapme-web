@@ -1,5 +1,12 @@
 en:
+  invitation_request:
+    create:
+      success: 'Thank your for your request! Hope someone sends you an invitation!'
+      failure: "Sorry, we couldn't process your request. Try again."
+    sent: 'Invitation has been sent to requester.'
+    not_found: 'The inventation request could not be found.'
   sign_in:
-    success: 'You are signed in'
+    success: 'You are signed in.'
+    failure: 'You could not be signed in. Have you been invited?'
   sign_out:
-    success: 'You are signed out'
+    success: 'You are signed out.'

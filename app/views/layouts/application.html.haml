@@ -8,6 +8,11 @@
     .container-fluid
       .row-fluid
         .span12
+          - if alert
+            .alert.alert-error= alert
+          - if notice
+            .alert.alert-info.disappear= notice
+
           - if current_user
             %div
               .pull-right= link_to 'Sign out', sign_out_path, method: :delete, rel: 'sign-out', class: %i(btn btn-danger)
@@ -17,11 +22,17 @@
               %p
                 Your auth token is <code>#{current_user.auth_token}</code>.
                 Start uploading snapshots with the CLI <code>gem install snapme</code>.
+          - else
+            .row.demo-tiles(style='margin-bottom:20px')
+              .span6.offset3
+                .tile
+                  %h1 Welcome!
+                  %p
+                    Snapme let's you get a glipse at your team from anywhere!
+                    We ask for the least authorization possible from your
+                    chosen auth provider.
 
-          - if alert
-            .alert.alert-error= alert
-          - if notice
-            .alert.alert-info= notice
+                  = link_to 'Want in?', new_invitation_request_path, rel: 'request-invitation', class: %i(btn btn-warning btn-large)
 
           %hr/
           = yield

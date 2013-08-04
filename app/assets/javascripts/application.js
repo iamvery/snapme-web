@@ -15,4 +15,4 @@
 //= require bootstrap-switch
 //= require_tree .
 
-$('.alert').delay(2000).fadeOut()
+$('.alert.disappear').delay(2000).fadeOut()

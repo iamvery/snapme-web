@@ -24,6 +24,22 @@ class User < ActiveRecord::Base
     find_or_create_by(provider: provider, uid: uid, username: username)
   end
 
+  def self.find_by_auth_hash(auth_hash)
+    find_by(
+      provider: auth_hash.provider,
+      uid:      auth_hash.uid,
+      username: auth_hash.info.nickname,
+    )
+  end
+
+  def self.create_by_auth_hash(auth_hash)
+    create!(
+      provider: auth_hash.provider,
+      uid:      auth_hash.uid,
+      username: auth_hash.info.nickname,
+    )
+  end
+
   private
 
   def ensure_auth_token

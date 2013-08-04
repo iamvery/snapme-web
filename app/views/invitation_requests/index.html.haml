@@ -1,0 +1,20 @@
+.pull-right
+  = link_to 'View Teams', teams_path, class: %i(btn btn-primary)
+%h1 Invitation Requests
+%p
+  For now Snapme is invitation only. Our privacy is important, so we don't want
+  to simply let anyone in with a provider account. Please choose wisely in
+  sending invitations to requesting users!
+
+%table.table
+  %thead
+    %tr
+      %th Email
+  %tbody
+    - @invitation_requests.each do |request|
+      %tr.invitation-request
+        %td= request.email
+        %td
+          .pull-right
+            = send_invitation_link(request)
+            = delete_invitation_request_link(request)
