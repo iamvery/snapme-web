@@ -1,0 +1,6 @@
+- request_count = InvitationRequest.count
+- if request_count > 0
+  .alert.alert-info
+    There are <strong>#{request_count}</strong> people wanting an
+    invitation to snapme!
+    Can you #{link_to 'help them out', invitation_requests_path}?

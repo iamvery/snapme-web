@@ -1,3 +1,3 @@
 %div(style='text-align:center')
-  = link_to 'Sign in with Github',  '/auth/github',   rel: 'github-sign-in',  class: %i(btn btn-primary btn-large)
-  = link_to 'Sign in with Twitter', '/auth/twitter/', rel: 'twitter-sign-in', class: %i(btn btn-info btn-large)
+  = provider_sign_in_link('github')
+  = provider_sign_in_link('twitter')
