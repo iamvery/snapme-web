@@ -1,6 +1,6 @@
 en:
   sign_in:
-    success: 'You are signed in'
+    success: 'You are signed in.'
     failure: 'You could not be signed in. Have you been invited?'
   sign_out:
-    success: 'You are signed out'
+    success: 'You are signed out.'
