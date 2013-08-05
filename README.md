@@ -12,7 +12,9 @@ Getting Started
 
 3. Run the specs: `bin/rspec`
 
-4. Run the app: `bin/rails s`
+4. Run the javascript specs: `bin/rake konacha:serve # follow instructions`
+
+5. Run the app: `bin/rails s`
 
 Deploying
 ---------

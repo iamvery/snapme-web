@@ -1,0 +1,39 @@
+window.Snapme or= {}
+
+class Snapme.Camera
+  constructor: (@feed, @frame, @readyCallback, @onDenied) ->
+    @recording = false
+
+  turnOn: =>
+    navigator.getMedia(@videoConstraints,
+      @userMediaAllowed,
+      @onDenied,
+    )
+
+  turnOff: =>
+    @feed.pause()
+    @localMediaStream.stop()
+    @recording = false
+
+  snap: (callback) =>
+    throw 'Video must be recording to take a snapshot' unless @recording
+    context = @frame.getContext('2d')
+    context.drawImage(@feed, 0, 0, <%= User::SNAPSHOT_WIDTH %>, <%= User::SNAPSHOT_HEIGHT %>)
+    callback() if callback
+
+  userMediaAllowed: (@localMediaStream) =>
+    @feed.src = URL.createObjectURL(@localMediaStream)
+    @feed.play()
+    @recording = true
+
+    if @readyCallback
+      closure = ->
+        @readyCallback()
+      setTimeout(closure.bind(this), 100)
+
+  image: =>
+    @frame.toDataURL('snap.png')
+
+  videoConstraints:
+    video: true
+    audio: false

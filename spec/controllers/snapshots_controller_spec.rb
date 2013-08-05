@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SnapshotsController do
   describe 'POST #create' do
     let(:user)    { double 'User'  }
-    let(:snapshot){ 'snapshot.jpg' }
+    let(:snapshot){ double :image  }
 
     context 'unauthenticated' do
       before do
@@ -17,6 +17,8 @@ describe SnapshotsController do
     context 'authenticated' do
       before do
         allow(User).to receive(:find_by_auth_token).and_return(user)
+        allow(Tempfile).to receive(:open).and_return(snapshot)
+        allow(snapshot).to receive(:close)
       end
 
       it %q(updates the user's snapshot) do

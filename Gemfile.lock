@@ -49,6 +49,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    colorize (0.5.8)
     database_cleaner (1.0.1)
     diff-lcs (1.2.4)
     dotenv (0.8.0)
@@ -82,6 +83,12 @@ GEM
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.0)
+    konacha (3.0.0)
+      actionpack (>= 3.1, < 5)
+      capybara
+      colorize
+      railties (>= 3.1, < 5)
+      sprockets
     launchy (2.3.0)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -221,6 +228,7 @@ DEPENDENCIES
   foreigner
   haml-rails
   jquery-rails
+  konacha
   launchy
   mini_magick
   omniauth

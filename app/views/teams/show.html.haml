@@ -7,3 +7,15 @@
   %small Team
   = @team.name
 = render 'users/snapshots', users: @team.users
+
+.photographer-toggle
+  %p.text-center
+    %strong Toggle browser snapshots!
+    %br/
+    %span.muted (experimental)
+  %div.text-center
+    .switch= check_box_tag :photographer_toggle, '1', false
+
+#snapshooter(style='display:none')
+  %video.feed{ width: User::SNAPSHOT_WIDTH, height: User::SNAPSHOT_HEIGHT }
+  %canvas.frame{ width: User::SNAPSHOT_WIDTH, height: User::SNAPSHOT_HEIGHT }
