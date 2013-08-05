@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :snapshot, SnapshotUploader
 
+  def snapshot_url_if_exists
+    snapshot_url if snapshot.file.exists?
+  end
+
   def notify_new_snapshot
     Pusher[User::PUSHER_CHANNEL].trigger(
       User::PUSHER_NEW_SNAPSHOT_EVENT,

@@ -2,6 +2,5 @@
   - users.each do |user|
     %li.user{ id: user.id }
       .thumbnail
-        - if user.snapshot.file.exists?
-          = image_tag user.snapshot.url, class: :snapshot
+        = image_tag user.snapshot_url_if_exists, class: :snapshot
         .caption= user.username
