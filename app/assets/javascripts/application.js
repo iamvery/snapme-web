@@ -13,6 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-switch
+//= require_self
 //= require_tree .
 
 $('.alert.disappear').delay(2000).fadeOut()
+
+navigator.getMedia = ( navigator.getUserMedia ||
+  navigator.webkitGetUserMedia ||
+  navigator.mozGetUserMedia ||
+  navigator.msGetUserMedia);

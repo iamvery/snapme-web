@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   PUSHER_CHANNEL            = 'user_channel'
   PUSHER_NEW_SNAPSHOT_EVENT = 'new_snapshot'
 
+  SNAPSHOT_WIDTH  = 320
+  SNAPSHOT_HEIGHT = 240
+
   has_many :memberships
   has_many :teams, through: :memberships
 
