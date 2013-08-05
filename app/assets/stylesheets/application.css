@@ -22,3 +22,14 @@ ul.snapshots li {
 .text-center {
   text-align: center;
 }
+
+.photographer-toggle {
+  position: absolute;
+  bottom:   0;
+  right:    0;
+
+  padding:  10px;
+  border-top-left-radius: 10px;
+
+  background-color: #eee;
+}
