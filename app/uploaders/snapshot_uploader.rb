@@ -15,7 +15,7 @@ class SnapshotUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{Time.now.to_s(:number)}.jpg"
+    "#{SecureRandom.hex}.jpg"
   end
 
   private
