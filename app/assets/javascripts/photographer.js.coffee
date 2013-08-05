@@ -1,10 +1,15 @@
 $ ->
-  snapshooter = $('#snapshooter')
+  media_denied = ->
+    alert('denied')
 
-  if snapshooter.length
-    snaps_allowed = ->
-      snapshot.take()
-      thirty_seconds = 30000
-      setInterval(snapshot.take, thirty_seconds)
+  snapshooter = new Snapme.Snapshooter(
+    $('#snapshooter'),
+    media_denied,
+  )
 
-    snapshot = new Snapme.Snapshot(snapshooter, snaps_allowed)
+  $('#photographer_toggle').change ->
+    toggle = $(this)
+    if toggle.is(':checked')
+      snapshooter.start()
+    else
+      snapshooter.stop()
