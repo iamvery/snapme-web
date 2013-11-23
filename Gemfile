@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.0.0', patchlevel: '353'
 gem 'bundler', '~>1.5beta'
 
 gem 'rails', '4.0.0'
