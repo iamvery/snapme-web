@@ -220,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.5beta)
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)
